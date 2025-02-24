@@ -1,10 +1,12 @@
 import { initTRPC } from "@trpc/server";
-
 import { cache } from "react";
 import { ZodError } from "zod";
 
+import { db } from "@/server/db";
+
 export const createTRPCContext = cache(async (opts: { headers: Headers }) => {
 	return {
+		db,
 		user_id: "user_123",
 		...opts,
 	};
