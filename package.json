@@ -1,5 +1,5 @@
 {
-	"name": "unified-nextjs",
+	"name": "@rtrampox/create-next-app",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
