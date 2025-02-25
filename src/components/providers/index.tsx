@@ -10,7 +10,7 @@ export function Providers({ children }: React.PropsWithChildren) {
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 				<NuqsAdapter>
 					{children}
-					<Toaster richColors theme="system" />
+					<Toaster richColors theme="system" closeButton />
 				</NuqsAdapter>
 			</ThemeProvider>
 		</TRPCReactProvider>

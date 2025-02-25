@@ -2,7 +2,7 @@ import "server-only";
 
 import { headers } from "next/headers";
 
-export async function getCurrentPath() {
+export async function getCurrentPath(): Promise<URL> {
 	const h = await headers();
-	return h.get("x-current-path") as string;
+	return new URL(h.get("x-current-href") as string);
 }
