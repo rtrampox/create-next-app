@@ -1,12 +1,12 @@
-import { api } from "@/trpc/server";
+import { trpc } from "@/trpc/server";
 import { HydrateClient, prefetch } from "@/trpc/react/server";
 
 import { Greet } from "./greet";
 
 export default async function Home() {
 	await prefetch(
-		api.hello.greet.queryOptions({
-			text: "TRPC",
+		trpc.hello.greet.queryOptions({
+			text: "from TRPC",
 		})
 	);
 

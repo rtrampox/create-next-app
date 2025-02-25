@@ -4,11 +4,13 @@ import { ZodError } from "zod";
 
 import { db } from "@/server/db";
 
-export const createTRPCContext = cache(async (opts: { headers: Headers }) => {
+export const createTRPCContext = cache(async (opts: { headers: Headers; resHeaders: Headers }) => {
+	const resHeaders = new Headers(opts.resHeaders);
+
 	return {
 		db,
-		user_id: "user_123",
 		...opts,
+		resHeaders,
 	};
 });
 
@@ -42,4 +44,4 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
 	return result;
 });
 
-export const baseProcedure = t.procedure.use(timingMiddleware);
+export const publicProcedure = t.procedure.use(timingMiddleware);
